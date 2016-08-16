@@ -49,7 +49,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 160, 20));
 
         jLabel2.setText("Primer Numero");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 70, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 90, 20));
 
         jLabel3.setText("Segundo Numero");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 90, 20));
@@ -72,9 +72,16 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel1.add(txtNumeroUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 80, -1));
         jPanel1.add(txtNumeroDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 80, -1));
+
+        txtResultado.setEditable(false);
         jPanel1.add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 90, -1));
 
         cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -96,9 +103,31 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumeroUnoActionPerformed
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+       String n1, n2, res;
+       int num1, num2, suma;
+       
+       n1=txtNumeroUno.getText();
+       n2=txtNumeroDos.getText();
+        num1= Integer.parseInt(n1);
+        num2= Integer.parseInt(n2);
+        
+        suma= num1 + num2;
+        res = String.valueOf(suma);
+        
+        txtResultado.setText(res);
+        
         
         
     }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        // TODO add your handling code here:
+        txtNumeroUno.setText("");
+        txtNumeroDos.setText("");
+        txtResultado.setText("");
+        
+        txtNumeroUno.requestFocusInWindow();
+    }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
      * @param args the command line arguments
